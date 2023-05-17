@@ -6,7 +6,7 @@ RUN nuget restore
 # RUN powershell nuget restore
 # RUN msbuild /p:Configuration=Release /p:publishUrl=/out /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True
 
-RUN dir /s
+
 RUN msbuild /v:d /p:Configuration=Release -r:False
 
 
