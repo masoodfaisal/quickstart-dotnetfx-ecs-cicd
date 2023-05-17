@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8.1 AS build
 WORKDIR /app
 
 COPY SampleWebApplication .
@@ -6,7 +6,6 @@ RUN nuget restore
 # RUN powershell nuget restore
 # RUN msbuild /p:Configuration=Release /p:publishUrl=/out /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True
 
-RUN Update-Package Microsoft.Owin -Reinstall
 RUN msbuild /v:d /p:Configuration=Release -r:False
 
 
