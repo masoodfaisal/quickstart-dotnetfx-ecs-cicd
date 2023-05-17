@@ -5,7 +5,9 @@ COPY SampleWebApplication .
 RUN nuget restore
 # RUN powershell nuget restore
 # RUN msbuild /p:Configuration=Release /p:publishUrl=/out /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True
-RUN msbuild /p:Configuration=Release -r:False
+
+RUN dir /s
+RUN msbuild /v:d /p:Configuration=Release -r:False
 
 
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS runtime
