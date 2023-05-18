@@ -3,7 +3,6 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019 AS
 WORKDIR /app
 
 COPY SampleWebApplication .
-RUN nuget restore
 RUN powershell nuget restore
 # RUN msbuild /p:Configuration=Release /p:publishUrl=/out /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True
 
